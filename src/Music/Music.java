@@ -22,7 +22,16 @@ public class Music {
         this.numberofStreams++;
 
     }
-    public void search(String title){
+    public ArrayList<Music> search(String title){
+        ArrayList<Music> resultMusics = new ArrayList<Music>();
+        for(Music music : allMusics){
+            if(music.title.equals(title)){
+                resultMusics.add(music);
+            }
 
+        }
+        if(!resultMusics.isEmpty())
+        return resultMusics;
+        else return null;
     }
 }
