@@ -1,13 +1,15 @@
 package User;
 
+import Behaviors.RegularBehavior;
 import Behaviors.UserBehavior;
+import Exceptions.InvalidOperationException;
 import Playlist.Playlist;
 
 import java.util.ArrayList;
 
 public class User {
     private String username;
-    private static ArrayList<String> allUsers = new ArrayList<String>();
+    private static ArrayList<User> allUsers = new ArrayList<User>();
     private String password;
 
 
@@ -20,8 +22,22 @@ public class User {
 
 
 
+    //constructor
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
+        this.userBehavior = new RegularBehavior();
+        if(allUsers.contains(this)) throw new InvalidOperationException("this Username is token");
+        if(password.length() < 8) throw new InvalidOperationException("pass word length must be at least 8");
+        allUsers.add(this);
+    }
+    //methods
     public void follow(User user){
+        if(followingList.contains(user)) throw new InvalidOperationException("you already follow this User");
+        if(!(allUsers.contains(user))) throw new InvalidOperationException("this user does not exist");
 
+        this.followingList.add(user);
+        user.followerList.add(this);
     }
 
 
