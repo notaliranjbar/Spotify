@@ -30,6 +30,20 @@ public class Playlist {
         if(PasswordValidator.PasswordValidator(password , this)) playList.remove(music);
         else throw new InvalidOperationException("your password is incorrect , try again");
     }
+    public ArrayList<Music> searchInPlayList(String title){
+        ArrayList<Music> resultMusics = new ArrayList<Music>;
+        for(Music music : playList){
+            if(music.getTitle().equals(title)) resultMusics.add(music);
+        }
+        if(!(resultMusics.isEmpty())) return resultMusics;
+        else return null;
+    }
+    public Music searchInPlayList(String title , String singerName){
+        for(Music music : playList){
+            if(music.getTitle().equals(title) && music.getSinger().getUsername.equals(singerName)) return music;
+        }
+        return null;
+    }
     //getters
     public String getTitle(){
         return title;
