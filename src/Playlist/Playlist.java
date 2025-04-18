@@ -10,6 +10,8 @@ public class Playlist {
     private ArrayList<Music> playList = new ArrayList<Music>();
     private User owner;
     //methods
+
+
     public void editTitle(String title , String password){
         if(PasswordValidator.PasswordValidator(password, this)) this.title = title;
         else throw new InvalidOperationException("your password is incorrect , try again");
@@ -24,8 +26,20 @@ public class Playlist {
         }else throw new InvalidOperationException("your password is incorrect , try again");
     }
     public void removeMusic (Music music , string password){
+        if(!(playList.contains(music))) throw new InvalidOperationException("this music doesnt exist on your playlist");
         if(PasswordValidator.PasswordValidator(password , this)) playList.remove(music);
         else throw new InvalidOperationException("your password is incorrect , try again");
     }
+    //getters
+    public String getTitle(){
+        return title;
+    }
+    public ArrayList<Music> getPlayList(){
+        return playList;
+    }
+    public User getOwner(){
+        return owner;
+    }
+
 
 }
