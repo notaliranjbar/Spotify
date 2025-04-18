@@ -1,6 +1,7 @@
 package User;
 
 import Behaviors.UserBehavior;
+import Playlist.Playlist;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,7 @@ public class User {
     private String password;
     ArrayList<User> followingList = new ArrayList<User>();
     ArrayList<User> followerList = new ArrayList<User>();
+    ArrayList<Playlist> Playlists = new ArrayList<Playlist>();
     private UserBehavior userBehavior;
 
     public void follow(User user){
