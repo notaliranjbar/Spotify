@@ -3,6 +3,7 @@ package User;
 import Behaviors.RegularBehavior;
 import Behaviors.UserBehavior;
 import Exceptions.InvalidOperationException;
+import Music.Music;
 import Playlist.Playlist;
 
 import java.util.ArrayList;
@@ -42,17 +43,17 @@ public class User {
 
 
     public void createPlayList(String Title){
-        this.userBehavior().createPlayList(Title , this);
+        userBehavior.createPlaylist(Title , this);
     }
 
 
     public void PlayMusic(Music music){
-        this.userBehavior().PlayMusic(music);
+        userBehavior.playMusic(music);
     }
 
 
     public void buyPremium(int month){
-        this.userBehavior().buyPremium(this, month);
+        userBehavior.buyPremium(this, month);
     }
 
     //setters
@@ -73,6 +74,7 @@ public class User {
     public void addPlaylist(Playlist playlist){
         if (Playlists == null) throw new InvalidOperationException("Playlists doesnt exist");
         if (Playlists.contains(playlist)) throw new InvalidOperationException("playlist already exists");
+        if(userBehavior instanceof RegularBehavior){throw new InvalidOperationException("buy premium to add playlist");}
         Playlists.add(playlist);
     }
 

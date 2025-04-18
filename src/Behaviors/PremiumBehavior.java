@@ -5,7 +5,7 @@ import Music.Music;
 import Playlist.Playlist;
 import User.User;
 
-public class PremiumBehavior {
+public class PremiumBehavior implements UserBehavior {
     private int month;
     // getter
     public int getMonth() {
@@ -16,7 +16,7 @@ public class PremiumBehavior {
         this.month = month;
     }
     //constructor
-    public void PremiumBehavior(int month){
+    public PremiumBehavior(int month){
         this.setMonth(month);
     }
     @Override

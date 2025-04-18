@@ -13,7 +13,7 @@ public class Music {
     //constructor
     public void Music(String title , User singer){
         for(Music music : allMusics){
-            if(music.title.equals(title) , music.singer.equals(singer)){
+            if(music.title.equals(title) && music.singer.equals(singer)){
                 throw new InvalidOperationException("this Music already exists..");
             }
         }

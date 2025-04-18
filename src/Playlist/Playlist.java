@@ -11,15 +11,22 @@ public class Playlist {
     private String title;
     private ArrayList<Music> playList = new ArrayList<Music>();
     private User owner;
+    //constructor
+
+    public Playlist(String title, User owner) {
+        if (owner == null) throw new InvalidOperationException("select owner to make playlist");
+        this.title = title;
+        this.owner = owner;
+    }
     //methods
 
 
     public void editTitle(String title , String password){
-        if(PasswordValidator.PasswordValidator(password, this)) this.title = title;
+        if(PasswordValidator.PasswordValidator(password, owner)) this.title = title;
         else throw new InvalidOperationException("your password is incorrect , try again");
     }
     public void addMusic(Music music , String password) {
-        if (PasswordValidator.PasswordValidator(password, this)) {
+        if (PasswordValidator.PasswordValidator(password, owner)) {
             if (playList.contains(music)) {
                 throw new InvalidOperationException("this music already exists in your playlist");
             }
@@ -29,11 +36,11 @@ public class Playlist {
     }
     public void removeMusic (Music music , String password){
         if(!(playList.contains(music))) throw new InvalidOperationException("this music doesnt exist on your playlist");
-        if(PasswordValidator.PasswordValidator(password , this)) playList.remove(music);
+        if(PasswordValidator.PasswordValidator(password , owner)) playList.remove(music);
         else throw new InvalidOperationException("your password is incorrect , try again");
     }
     public ArrayList<Music> searchInPlayList(String title){
-        ArrayList<Music> resultMusics = new ArrayList<Music>;
+        ArrayList<Music> resultMusics = new ArrayList<Music>();
         for(Music music : playList){
             if(music.getTitle().equals(title)) resultMusics.add(music);
         }
