@@ -10,4 +10,9 @@ public class PremiumBehavior {
     public void setMonth(int month) {
         this.month = month;
     }
+    //constructor
+    public void PremiumBehavior(int month){
+        this.setMonth(month);
+    }
+
 }
