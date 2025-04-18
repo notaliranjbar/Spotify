@@ -1,4 +1,4 @@
-package classes;
+package Behaviors;
 
 public class PremiumBehavior {
 }

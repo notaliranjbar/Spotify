@@ -1,4 +1,4 @@
-package classes;
+package Playlist;
 
 public class Playlist {
 }
