@@ -2,6 +2,7 @@ package Behaviors;
 
 import Exceptions.InvalidOperationException;
 import Music.Music;
+import User.User;
 
 public class RegularBehavior implements UserBehavior {
     private int playinglimit;
@@ -27,6 +28,11 @@ public class RegularBehavior implements UserBehavior {
         music.play();
         this.playinglimit--;
         System.out.println(music.getTitle() + "is playing");
+    }
+    @Override
+    public void buyPremium(User owner , int month){
+        if (owner == null) throw new InvalidOperationException("select owner to buy");
+        owner.setBehavior(new PremiumBehavior(month));
     }
 
 }
