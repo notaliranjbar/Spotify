@@ -12,5 +12,24 @@ public class User {
     ArrayList<User> followerList = new ArrayList<User>();
     private UserBehavior userBehavior;
 
+    //getters
+    public String getUsername(){
+        return username;
+    }
+    public ArrayList<String> getAllUsers(){
+        return allUsers;
+    }
+    public String getPassword(){
+        return password;
+    }
+    public ArrayList<User> getFollowingList(){
+        return followingList;
+    }
+    public ArrayList<User> getFollowerList(){
+        return followerList;
+    }
+    public UserBehavior getUserBehavior(){
+        return userBehavior;
+    }
 
 }
