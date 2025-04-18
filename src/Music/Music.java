@@ -56,4 +56,10 @@ public class Music {
         return resultMusics;
         else return null;
     }
+    public static Music search(String title , String singer){
+        for(Music music : allMusics){
+            if(music.title.equals(title) && music.singer.getUsername.equals(singer)) return music;
+        }
+        return null;
+    }
 }
