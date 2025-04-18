@@ -12,6 +12,20 @@ public class User {
     ArrayList<User> followerList = new ArrayList<User>();
     private UserBehavior userBehavior;
 
+    public void follow(User user){
+
+    }
+    public void createPlayList(String Title){
+        this.userBehavior.createPlayList(Title , this);
+    }
+    public void PlayMusic(Music music){
+        this.userBehavior.PlayMusic(music);
+    }
+    public void buyPremium(int month){
+        this.userBehavior.buyPremium(this, month);
+    }
+
+
     //getters
     public String getUsername(){
         return username;
