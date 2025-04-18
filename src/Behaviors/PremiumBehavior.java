@@ -6,4 +6,8 @@ public class PremiumBehavior {
     public int getMonth() {
         return month;
     }
+    //setter
+    public void setMonth(int month) {
+        this.month = month;
+    }
 }
