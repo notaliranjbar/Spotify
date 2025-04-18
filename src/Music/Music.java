@@ -1,5 +1,8 @@
 package Music;
 
+import Exceptions.InvalidOperationException;
+import User.User;
+
 import java.util.ArrayList;
 
 public class Music {
@@ -40,7 +43,7 @@ public class Music {
     }
     //methods
     public void play(){
-        System.out.println("song:" + title +"\nartist:" + singer.username + "is now playing");
+        System.out.println("song:" + title +"\nartist:" + singer.getUsername() + "is now playing");
         this.numberofStreams++;
 
     }
@@ -58,7 +61,7 @@ public class Music {
     }
     public static Music search(String title , String singer){
         for(Music music : allMusics){
-            if(music.title.equals(title) && music.singer.getUsername.equals(singer)) return music;
+            if(music.title.equals(title) && music.singer.getUsername().equals(singer)) return music;
         }
         return null;
     }

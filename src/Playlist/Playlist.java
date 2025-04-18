@@ -1,6 +1,8 @@
 package Playlist;
 
+import Exceptions.InvalidOperationException;
 import Music.Music;
+import User.User;
 import Validators.PasswordValidator;
 
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class Playlist {
 
         }else throw new InvalidOperationException("your password is incorrect , try again");
     }
-    public void removeMusic (Music music , string password){
+    public void removeMusic (Music music , String password){
         if(!(playList.contains(music))) throw new InvalidOperationException("this music doesnt exist on your playlist");
         if(PasswordValidator.PasswordValidator(password , this)) playList.remove(music);
         else throw new InvalidOperationException("your password is incorrect , try again");
@@ -40,7 +42,7 @@ public class Playlist {
     }
     public Music searchInPlayList(String title , String singerName){
         for(Music music : playList){
-            if(music.getTitle().equals(title) && music.getSinger().getUsername.equals(singerName)) return music;
+            if(music.getTitle().equals(title) && music.getSinger().getUsername().equals(singerName)) return music;
         }
         return null;
     }

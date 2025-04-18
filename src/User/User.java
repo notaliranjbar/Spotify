@@ -16,13 +16,13 @@ public class User {
 
     }
     public void createPlayList(String Title){
-        this.userBehavior.createPlayList(Title , this);
+        this.userBehavior().createPlayList(Title , this);
     }
     public void PlayMusic(Music music){
-        this.userBehavior.PlayMusic(music);
+        this.userBehavior().PlayMusic(music);
     }
     public void buyPremium(int month){
-        this.userBehavior.buyPremium(this, month);
+        this.userBehavior().buyPremium(this, month);
     }
 
 
