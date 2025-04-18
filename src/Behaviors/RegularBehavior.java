@@ -1,8 +1,14 @@
 package Behaviors;
 
 public class RegularBehavior implements UserBehavior {
-    public int playinglimit;
+    private int playinglimit;
+
+    //constructor
     public void RegularBehavior(){
         this.playinglimit = 5;
+    }
+    //getter
+    public int getPlayingLimit(){
+        return this.playinglimit;
     }
 }
