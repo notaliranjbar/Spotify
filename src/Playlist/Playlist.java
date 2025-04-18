@@ -10,8 +10,9 @@ public class Playlist {
     private ArrayList<Music> playList = new ArrayList<Music>();
     private User owner;
     //methods
-    public void editTitle(String title){
-        this.title = title;
+    public void editTitle(String title , String password){
+        if(PasswordValidator.PasswordValidator(password, this)) this.title = title;
+        else throw new InvalidOperationException("your password is incorrect , try again");
     }
     public void addMusic(Music music , String password) {
         if (PasswordValidator.PasswordValidator(password, this)) {
