@@ -55,13 +55,33 @@ public class User {
         this.userBehavior.buyPremium(this, month);
     }
 
+    //setters
+    public void setUsername(String username){
+        for(User user : allUsers){
+            if(user.username.equals(username))throw new InvalidOperationException("username already exists");
+        }
+        this.username = username;
+    }
+    public void setPassword(String password){
+        if(password.length() < 8) throw new InvalidOperationException("password length must be at least 8");
+        this.password = password;
+    }
+    public void setBehavior(UserBehavior userBehavior){
+        if(userBehavior == null) throw new InvalidOperationException("userBehavior cannot be null");
+        this.userBehavior = userBehavior;
+    }
+    public void addPlaylist(Playlist playlist){
+        if (Playlists == null) throw new InvalidOperationException("Playlists doesnt exist");
+        if (Playlists.contains(playlist)) throw new InvalidOperationException("playlist already exists");
+        Playlists.add(playlist);
+    }
 
     //getters
     public String getUsername(){
         return username;
     }
 
-    public ArrayList<String> getAllUsers(){
+    public ArrayList<User> getAllUsers(){
         return allUsers;
     }
 
