@@ -44,6 +44,11 @@ public class Playlist {
         }
         return null;
     }
+    public void playPlayList(){
+        for (Music music : playList){
+            music.play();
+        }
+    }
     //getters
     public String getTitle(){
         return title;
