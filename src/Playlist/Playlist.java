@@ -23,8 +23,9 @@ public class Playlist {
 
         }else throw new InvalidOperationException("your password is incorrect , try again");
     }
-    public void removeMusic (Music music){
-
+    public void removeMusic (Music music , string password){
+        if(PasswordValidator.PasswordValidator(password , this)) playList.remove(music);
+        else throw new InvalidOperationException("your password is incorrect , try again");
     }
 
 }
